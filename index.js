@@ -8,7 +8,8 @@ function extractDetail(node) {
     };
 }
 
-const chapterItermsRegion = () => document.querySelector("div#contents.style-scope.ytd-macro-markers-list-renderer").children;
+const chapterGuideRegion = () => document.querySelector("div#contents.style-scope.ytd-macro-markers-list-renderer");
+const chapterItermsRegion = () => chapterGuideRegion().children;
 const chapterItems = () => Array.from(chapterItermsRegion());
 
 function getCurrentChapter() {
@@ -31,7 +32,10 @@ const ms = 1;
 const sec = 1000 * ms;
 
 function main() {
-  setInterval(overwriteTitle, 1 * sec);
+  setTimeout(() => {  // SO SAD.
+    if (chapterGuideRegion() === null) return;
+    setInterval(overwriteTitle, 1 * sec);
+  }, 2 * sec);
 }
 
 main();
