@@ -1,0 +1,13 @@
+{
+    "name": "now-playing",
+    "description": "Display the current chapter on title region",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "permissions": ["activeTab"],
+    "content_scripts": [
+        {
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["index.js"]
+        }
+    ]
+}
